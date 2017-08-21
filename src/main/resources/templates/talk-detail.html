@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>奇门神算</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/qimenshensuan.css"/>
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body {
+            padding-top: 50px; /* 60px to make the container go all the way to the bottom of the topbar */
+        }
+    </style>
+    <script type="text/javascript">
+        function nav(id) {
+            location.href = "detail?id=" + id;
+        }
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-fixed-top master-nav">
+    <div class="container">
+        <div class="navbar-header" style="float: left;margin-right: 0">
+            <a class="navbar-brand" href="/index.html?serviceType=MARRIAGE">奇门神算</a>
+        </div>
+        <div id="navbar">
+            <ul class="nav navbar-nav" style="margin: 0;">
+                <li id="MARRIAGE"><a href="/index.html?serviceType=MARRIAGE">姻缘</a></li>
+                <li id="CAREER"><a href="/index.html?serviceType=CAREER">财运</a></li>
+                <li id="WEALTH"><a href="/index.html?serviceType=WEALTH">事业</a></li>
+                <li id="AUSPICE"><a href="/index.html?serviceType=AUSPICE">吉凶</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+
+<div class="container master-container">
+
+</div>
+
+<div class="container">
+    <pre>${doc.content}</pre>
+</div>
+<div class="modal fade" id="qrCode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title master-qr-title" id="myModalLabel">添加微信即可开始卜算</h4>
+            </div>
+            <div class="modal-body">
+                <img src="img/qrCode.jpg" width="100%"/>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>奇门神算</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/qimenshensuan.css"/>
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body {
+            padding: 0;
+            padding-top: 50px; /* 60px to make the container go all the way to the bottom of the topbar */
+        }
+    </style>
+    <script type="text/javascript">
+        function nav(id) {
+            location.href = "detail?id=" + id;
+        }
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-fixed-top master-nav">
+    <div class="container">
+        <div class="navbar-header" style="float: left;margin-right: 0">
+            <a class="navbar-brand" href="/index.html?serviceType=MARRIAGE">奇门神算</a>
+        </div>
+        <div id="navbar">
+            <ul class="nav navbar-nav" style="margin: 0;">
+                <li id="MARRIAGE"><a href="/index.html?serviceType=MARRIAGE">姻缘</a></li>
+                <li id="CAREER"><a href="/index.html?serviceType=CAREER">财运</a></li>
+                <li id="WEALTH"><a href="/index.html?serviceType=WEALTH">事业</a></li>
+                <li id="AUSPICE"><a href="/index.html?serviceType=AUSPICE">吉凶</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container master-container">
+    <#list docs as doc>
+        <h1>${doc.title}|${doc.time}</h1>
+        <div>
+            <pre>${doc.content}</pre>
+        </div>
+    </#list>
+
+
+</div>
+<div class="container" style="text-align: center">
+    <nav aria-label="Page navigation">
+        <ul class="pagination master-pagination">
+            <li>
+                <a href="?page=1" aria-label="第一页">
+                    <span aria-hidden="true">第一页</span>
+                </a>
+            </li>
+            <#list firstPage..lastPage as page>
+                <#if currentPage==page>
+                    <li class="active"><a href="?page=${page}">${page}</a></li>
+                    <#else>
+                        <li><a href="?page=${page}">${page}</a></li>
+                </#if>
+            </#list>
+            <li>
+                <a href="?page=${totalPage}" aria-label="最后一页">
+                    <span aria-hidden="true">最后一页</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html>

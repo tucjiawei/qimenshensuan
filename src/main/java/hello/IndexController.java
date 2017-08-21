@@ -22,6 +22,7 @@ public class IndexController {
                            @RequestParam(required = false, defaultValue = "MARRIAGE") ServiceType serviceType,
                            Model model) {
         model.addAttribute("masters", init.getMasters().subList((page - 1) * PAGE_SIZE, Math.min(page * PAGE_SIZE, init.getMasters().size())));
+
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPage", init.getMasters().size() / PAGE_SIZE + 1);
         int firstPage = 1, lastPage = init.getMasters().size() / PAGE_SIZE + 1;
