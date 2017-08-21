@@ -44,8 +44,8 @@
 
     <div class="banner"><img src="banner.jpg"></div>
     <#list masters as master>
-        <div class="row master-card">
-            <div class="col-sm-6 col-xs-12">
+        <div class="master-card col-sm-6">
+            <div class="col-xs-12">
                 <div class="col-xs-3 master-head">
                     <img class="master-pic" src="${master.pic}" onclick="nav(${master.id?string('#')})"/>
                 </div>
