@@ -1,5 +1,6 @@
 .master-container {
-    background-color: #e7e7e7;
+    background-color: #f7f7f7;
+    padding:0;
 }
 
 .master-head {
@@ -7,20 +8,29 @@
 }
 
 .master-card {
-    margin-bottom: 15px;
     background-color: white;
-    border: 1px gray solid;
+    border: 1px lightgrey solid;
     overflow: hidden;
-    padding: 15px 0;
-    cursor: hand;
+    padding: 10px 0;
+    cursor: pointer;
+    margin-bottom: 10px;
 }
 
 @media (min-width: 768px) {
     .master-card {
-        height: 180px;
+        width: 49%;
+        margin:0 0.5% 10px 0.5%;
+        height: 190px;
     }
 }
-
+.master-detail-card {
+    background-color: white;
+    border: 1px lightgrey solid;
+    overflow: hidden;
+    padding: 10px 0;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
 .master-card:last-child {
     margin-bottom: 0;
 }
@@ -32,6 +42,7 @@
 
 .master-pic {
     width: 100%;
+    cursor:pointer;
 }
 
 .navbar-nav > li {
@@ -56,6 +67,26 @@
 
 .master-btn {
     text-align: center;
+}
+@media (min-width: 768px) {
+    .master-btn {
+        padding:0;
+    }
+}
+
+.master-inner-btn{
+    width: 100%;
+    border-radius: 0;
+    border: 1px gray solid;
+    background-color: white;
+    color:  rgb(217, 83, 79);
+}
+.master-inner-btn:hover{
+    background-color:  rgb(217, 83, 79);
+    color: white;
+}
+.master-last-btn{
+    border-left-width: 0;
 }
 
 .master-data {
@@ -113,4 +144,9 @@ a, a:hover, .nav > li > a {
 .master-qr-title {
     color: rgb(217, 83, 79);
     font-weight: bold;
+}
+@media (min-width: 768px) {
+    .master-qrCode{
+        width: 20%;
+    }
 }
