@@ -1,0 +1,89 @@
+.master-container{
+    background-color: #e7e7e7;
+}
+.master-head{
+    padding:0 1px;
+}
+.master-card{
+    margin-bottom: 15px;
+    background-color: white;
+    border: 1px gray solid;
+    overflow: hidden;
+    padding: 15px 0;
+    cursor: hand;
+}
+.master-card:last-child{
+    margin-bottom: 0;
+}
+.master-desc{
+    height: 80px;
+    overflow: hidden;
+}
+.master-pic{
+    width: 100%;
+}
+.navbar-nav > li {
+    float: left;
+}
+.navbar-nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.master-label{
+    padding:0;
+    margin: 5px 0;
+    text-align: center;
+    border-right: 1px solid gray;
+}
+.master-label:last-child{
+    border-right-width: 0;
+}
+.master-btn{
+    text-align: center;
+}
+.master-data{
+    border-top: solid 1px gray;
+    margin:5px 0;
+}
+.master-nav{
+    background-color: rgb(217,83,79);
+    margin-bottom: 0;
+}
+a,a:hover,.nav>li>a{
+    color: white;
+}
+.nav>li>a:focus, .nav>li>a:hover,.nav>li>a:active{
+    background-color: white;
+    color: rgb(217,83,79);
+}
+.master-name{
+    color:  darkblue;
+    font-weight:bold;
+}
+.master-inner-data{
+    font-weight: bold;
+    color: red;
+}
+
+.master-pagination{
+    margin: 10px auto;
+}
+.master-pagination>li>a{
+    background-color: white;
+    color: rgb(217,83,79);
+}
+.master-pagination li[class=active] a{
+    background-color: rgb(217,83,79);
+    color: white;
+}
+.master-tab{
+    padding:0;
+}
+.master-active,.master-active a{
+    background-color: white;
+    color:  rgb(217,83,79) !important;
+}
+.master-qr-title{
+    color: rgb(217,83,79);
+    font-weight:bold;
+}

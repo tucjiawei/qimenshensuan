@@ -1,0 +1,9 @@
+target/
+.idea/
+out/
+build/
+.gradle/
+LOG_PATH_IS_UNDEFINED/
+*.log
+*.iml
+.DS_Store
