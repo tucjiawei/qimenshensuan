@@ -8,9 +8,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
+import sitemap.JaxbUtils;
+import sitemap.SiteMap;
+import sitemap.SiteUrl;
 
 import java.io.*;
 import java.lang.reflect.Type;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -23,6 +27,8 @@ public class Init implements ApplicationListener<ApplicationReadyEvent> {
 
     @Value("${talk.dir}")
     private String talkDir;
+    @Value("${sitemap.dir}")
+    private String siteMapDir;
     private List<Master> masters = new ArrayList<>();
     private Map<String, MasterTalk> talkMap = new TreeMap<>();
 
@@ -80,6 +86,32 @@ public class Init implements ApplicationListener<ApplicationReadyEvent> {
                     }
                 }
                 talkMap.put(file.getName(), masterTalk);
+
+                SiteMap siteMap = new SiteMap();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                String now = sdf.format(new Date());
+                for (int i = 1; i <= 32; i++) {
+                    SiteUrl url = new SiteUrl("http://qimenshensuan.com/index.html?page=" + i, "daily", "1.0", now);
+                    siteMap.getUrl().add(url);
+                }
+                for (int i = 1; i <= 240; i++) {
+                    SiteUrl url = new SiteUrl("http://qimenshensuan.com/detail?id=" + i, "daily", "1.0", now);
+                    siteMap.getUrl().add(url);
+                }
+                for (int i = 1; i <= f.listFiles().length; i++) {
+                    SiteUrl url = new SiteUrl("http://qimenshensuan.com/talk/" + i, "daily", "1.0", now);
+                    siteMap.getUrl().add(url);
+                }
+                String siteMapXml = JaxbUtils.convertToXml(siteMap);
+
+                File siteMapFile = new File(siteMapDir + "/sitemap.xml");
+                if (siteMapFile.exists()) {
+                    siteMapFile.createNewFile();
+                }
+                FileWriter fileWriter = new FileWriter(siteMapFile);
+                fileWriter.write(siteMapXml);
+                fileWriter.flush();
+                fileWriter.close();
             }
         } catch (IOException e) {
             log.error("error", e);

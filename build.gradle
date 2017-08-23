@@ -12,7 +12,9 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
-
+compileJava.options.fork = true
+compileJava.options.forkOptions.executable = 'javac'
+compileJava.options.compilerArgs << "-XDignore.symbol.file"
 jar {
     baseName = 'qimenshensuan'
     version = '0.1.0'
