@@ -8,9 +8,11 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/qimenshensuan.css"/>
+    <link rel="stylesheet" href="css/slider.css"/>
 
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/slider.js"></script>
     <style type="text/css">
         body {
             padding: 0;
@@ -42,7 +44,30 @@
 
 <div class="container master-container">
 
-    <div class="banner"><img src="banner.jpg"></div>
+    <div class="banner">
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slider__item">
+                    <img src="img/1.jpeg" alt="">
+                    <span class="slider__caption">文字描述信息... </span>
+                </div>
+                <div class="slider__item">
+                    <a href="www.baidu.com"><img src="img/2.jpeg" alt=""></a>
+                    <span class="slider__caption">文字描述信息... </span>
+                </div>
+                <div class="slider__item">
+                    <img src="img/3.jpeg" alt="">
+                    <span class="slider__caption">文字描述信息... </span>
+                </div>
+            </div>
+            <div class="slider__switch slider__switch--prev" data-ikslider-dir="prev">
+                <span></span>
+            </div>
+            <div class="slider__switch slider__switch--next" data-ikslider-dir="next">
+                <span></span>
+            </div>
+        </div>
+    </div>
     <#list masters as master>
         <div class="col-sm-6 master-card">
             <div class="col-xs-12">
@@ -145,5 +170,8 @@
 <script type="text/javascript">
     var type = "${serviceType}";
     $("#" + type).addClass("master-active");
+    $(".slider-container").ikSlider({
+        delay:1000
+    });
 </script>
 </html>
