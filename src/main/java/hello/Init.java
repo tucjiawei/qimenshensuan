@@ -118,15 +118,15 @@ public class Init implements ApplicationListener<ApplicationReadyEvent> {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String now = sdf.format(new Date());
                 for (int i = 1; i <= 32; i++) {
-                    SiteUrl url = new SiteUrl("http://qimenshensuan.com/index.html?page=" + i, "daily", "1.0", now);
+                    SiteUrl url = new SiteUrl("http://www.qimenshensuan.com/index.html?page=" + i, "daily", "1.0", now);
                     siteMap.getUrl().add(url);
                 }
                 for (int i = 1; i <= 240; i++) {
-                    SiteUrl url = new SiteUrl("http://qimenshensuan.com/detail?id=" + i, "daily", "1.0", now);
+                    SiteUrl url = new SiteUrl("http://www.qimenshensuan.com/detail?id=" + i, "daily", "1.0", now);
                     siteMap.getUrl().add(url);
                 }
                 for (int i = 1; i <= f.listFiles().length; i++) {
-                    SiteUrl url = new SiteUrl("http://qimenshensuan.com/talk/" + i, "daily", "1.0", now);
+                    SiteUrl url = new SiteUrl("http://www.qimenshensuan.com/talk/" + i, "daily", "1.0", now);
                     siteMap.getUrl().add(url);
                 }
                 String siteMapXml = JaxbUtils.convertToXml(siteMap);
