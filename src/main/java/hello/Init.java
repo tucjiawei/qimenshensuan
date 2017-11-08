@@ -1,5 +1,6 @@
 package hello;
 
+import com.google.common.collect.Lists;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import lombok.Data;
@@ -45,8 +46,17 @@ public class Init implements ApplicationListener<ApplicationReadyEvent> {
             Project project5 = new Project(ServiceType.OTHER, 100, "desc");
             List<Project> projects = Arrays.asList(project1, project2, project3, project4, project5);
 
+            BufferedReader services = new BufferedReader(new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream("services.txt")));
+            String str;
+            List<Service> serviceList = new ArrayList<>();
+            while ((str = services.readLine()) != null) {
+                String[] service = str.split("\\|");
+                serviceList.add(new Service(service[0], service[1], service[2]));
+            }
+
+            //大师列表
             BufferedReader bis = new BufferedReader(new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream("masters")));
-            String masterStr = "", str;
+            String masterStr = "";
             while ((str = bis.readLine()) != null) {
                 masterStr += str;
             }
@@ -55,12 +65,29 @@ public class Init implements ApplicationListener<ApplicationReadyEvent> {
             };
             Type type = typeToken.getType();
             List<MasterJsonVO> users = new Gson().fromJson(masterStr, type);
+
+            //评论
+            BufferedReader comments = new BufferedReader(new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream("comments")));
+            String commentStr = "";
+            while ((str = comments.readLine()) != null) {
+                commentStr += str;
+            }
+            List<MasterJsonVO> usersComments = new Gson().fromJson(commentStr, type);
+
             int id = 1;
             for (MasterJsonVO user : users) {
-                Master master = new Master(id++, user.getTitle(), "img/8285_head.png", user.getDesc(), 24323, 24323, user.getGoodComment(), projects);
+                int totalNum = 0;
+                if (!user.getTotalCommentNum().equals("暂无数据")) {
+                    totalNum = Integer.valueOf(user.getTotalCommentNum());
+                }
+                List<Comment> commentList = Lists.transform(usersComments.get(id - 1).getComments(), commentJsonVO -> new Comment(commentJsonVO.getAuthor(), commentJsonVO.getContent(), commentJsonVO.getTime()));
+                String[] imgPath = user.getImg().split("/");
+                String imgName = imgPath[imgPath.length - 1];
+                Master master = new Master(id++, user.getTitle(), "img/" + imgName, user.getDesc(), totalNum, totalNum, user.getGoodComment(), projects, commentList, serviceList);
                 masters.add(master);
             }
-            masters.get(0).setPic("img/184830_head.jpg");
+//            masters.get(0).setPic("img/184830_head.jpg");
+
 
             File f = new File(talkDir);
             if (!f.exists() || !f.isDirectory()) {

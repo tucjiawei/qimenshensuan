@@ -18,17 +18,20 @@ public class DetailController {
     private Init init;
 
     @RequestMapping("/detail")
-    public String greeting(long id, @RequestParam(required = false,defaultValue = "PROFILE") DetailType type, Model model) {
+    public String greeting(long id, @RequestParam(required = false, defaultValue = "PROFILE") DetailType type, Model model) {
         for (Master master : init.getMasters()) {
             if (master.getId() == id) {
+                String res = "detail";
                 model.addAttribute("master", master);
-                if(type==DetailType.SCORE){
-                    model.addAttribute("content","score");
-                }else{
-                    model.addAttribute("content","profile");
+                if (type == DetailType.SCORE) {
+                    model.addAttribute("content", master.getComments());
+                    res = "score";
+
+                } else {
+                    model.addAttribute("content", master.getServices());
                 }
-                model.addAttribute("type",type.toString());
-                return "detail";
+                model.addAttribute("type", type.toString());
+                return res;
             }
         }
         return "404";

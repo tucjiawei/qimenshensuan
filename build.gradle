@@ -36,5 +36,7 @@ dependencies {
 
     compile "org.projectlombok:lombok:1.16.12"
     compile 'com.google.code.gson:gson:2.8.1'
+    compile group: 'com.google.guava', name: 'guava', version: '11.0.2'
+
 }
 

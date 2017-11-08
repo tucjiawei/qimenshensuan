@@ -19,4 +19,6 @@ public class Master {
     private int score;
     private double rate;
     private List<Project> projectList;
+    private List<Comment> comments;
+    private List<Service> services;
 }

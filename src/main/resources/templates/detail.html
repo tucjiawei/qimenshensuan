@@ -100,7 +100,7 @@
         <div class="container" style="padding: 0;">
             <div id="navbar">
                 <ul class="nav navbar-nav" style="padding:0;margin: 0;text-align: center">
-                    <li id="PROFILE" class="master-tab col-xs-6"><a href="?id=${master.id?string('#')}">大师简介</a></li>
+                    <li id="PROFILE" class="master-tab col-xs-6"><a href="?id=${master.id?string('#')}">服务项目</a></li>
                     <li id="SCORE" class="master-tab col-xs-6"><a href="?id=${master.id?string('#')}&type=SCORE">最近评价</a>
                     </li>
                 </ul>
@@ -109,8 +109,17 @@
     </nav>
 </div>
 
-<div class="container">
-    ${content}
+<div class="container" style="padding: 0;">
+    <#list content as service>
+        <div class="col-xs-12 col-sm-3 master-service">
+            <div class="master-service-card" style="">
+                <div class="master-service-title">${service.title}</div>
+                <div class="master-service-content">${service.content}</div>
+                <div class="master-service-buy">${service.buy}<a href="#qrCode" class="visible-xs-*" style="display:inline-block;margin-left: 10px;color: blue" data-toggle="modal" data-target="#qrCode">现在找他预测</a></div>
+                <button type="button" class="btn btn-danger hidden-xs" data-toggle="modal" data-target="#qrCode">现在找他预测</button>
+            </div>
+        </div>
+    </#list>
 </div>
 <div class="modal fade" id="qrCode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog master-qrCode" role="document">

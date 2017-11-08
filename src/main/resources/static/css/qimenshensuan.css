@@ -1,6 +1,6 @@
 .master-container {
     background-color: #f7f7f7;
-    padding:0;
+    padding: 0;
 }
 
 .master-head {
@@ -19,10 +19,11 @@
 @media (min-width: 768px) {
     .master-card {
         width: 49%;
-        margin:0 0.5% 10px 0.5%;
+        margin: 0 0.5% 10px 0.5%;
         height: 190px;
     }
 }
+
 .master-detail-card {
     background-color: white;
     border: 1px lightgrey solid;
@@ -31,6 +32,7 @@
     cursor: pointer;
     margin-bottom: 10px;
 }
+
 .master-card:last-child {
     margin-bottom: 0;
 }
@@ -42,7 +44,7 @@
 
 .master-pic {
     width: 100%;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .navbar-nav > li {
@@ -68,24 +70,27 @@
 .master-btn {
     text-align: center;
 }
+
 @media (min-width: 768px) {
     .master-btn {
-        padding:0;
+        padding: 0;
     }
 }
 
-.master-inner-btn{
+.master-inner-btn {
     width: 100%;
     border-radius: 0;
     border: 1px gray solid;
     background-color: white;
-    color:  rgb(217, 83, 79);
+    color: rgb(217, 83, 79);
 }
-.master-inner-btn:hover{
-    background-color:  rgb(217, 83, 79);
+
+.master-inner-btn:hover {
+    background-color: rgb(217, 83, 79);
     color: white;
 }
-.master-last-btn{
+
+.master-last-btn {
     border-left-width: 0;
 }
 
@@ -145,8 +150,57 @@ a, a:hover, .nav > li > a {
     color: rgb(217, 83, 79);
     font-weight: bold;
 }
+
 @media (min-width: 768px) {
-    .master-qrCode{
+    .master-qrCode {
         width: 20%;
     }
+}
+
+.master-service {
+    border-bottom: 1px solid gray;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .master-service {
+        border: none;
+        height: 240px;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+}
+
+.master-service-title, .master-service-buy {
+    font-size: 18px;
+    height: 25px;
+}
+@media (min-width: 768px) {
+    .master-service-card {
+        margin: 5px 5px 5px;
+        border: 1px solid gray;
+        padding: 10px 50px;
+    }
+
+    .master-service-content {
+        height: 120px;
+    }
+
+    .master-service-title {
+        font-size: 18px;
+        height: 50px;
+    }
+
+    .master-service-buy {
+        font-size: 18px;
+        height: 25px;
+    }
+}
+
+.master-service-card:hover {
+    border-color: red;
+}
+.master-comment{
+    margin-bottom: 15px;
+    border-bottom: 1px solid gray;
 }
