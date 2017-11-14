@@ -106,40 +106,52 @@ public class Init implements ApplicationListener<ApplicationReadyEvent> {
                     if (isFirstLine) {
                         String[] lineStr = line.split("\\|");
                         masterTalk.setTitle(lineStr[0]);
-                        masterTalk.setTime(lineStr[1]);
+                        masterTalk.setAuthor(lineStr[1]);
+                        masterTalk.setTime(lineStr[2]);
                         isFirstLine = false;
                     } else {
                         masterTalk.setContent(masterTalk.getContent() + line + "\n");
                     }
                 }
                 talkMap.put(file.getName(), masterTalk);
-
-                SiteMap siteMap = new SiteMap();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                String now = sdf.format(new Date());
-                for (int i = 1; i <= 32; i++) {
-                    SiteUrl url = new SiteUrl("http://www.qimenshensuan.com/index.html?page=" + i, "daily", "1.0", now);
-                    siteMap.getUrl().add(url);
-                }
-                for (int i = 1; i <= 240; i++) {
-                    SiteUrl url = new SiteUrl("http://www.qimenshensuan.com/dashi/detail?id=" + i, "daily", "1.0", now);
-                    siteMap.getUrl().add(url);
-                }
-                for (int i = 1; i <= f.listFiles().length; i++) {
-                    SiteUrl url = new SiteUrl("http://www.qimenshensuan.com/suanmingzatan/" + i, "daily", "1.0", now);
-                    siteMap.getUrl().add(url);
-                }
-                String siteMapXml = JaxbUtils.convertToXml(siteMap);
-
-                File siteMapFile = new File(siteMapDir + "/sitemap.xml");
-                if (siteMapFile.exists()) {
-                    siteMapFile.createNewFile();
-                }
-                FileWriter fileWriter = new FileWriter(siteMapFile);
-                fileWriter.write(siteMapXml);
-                fileWriter.flush();
-                fileWriter.close();
             }
+            SiteMap siteMap = new SiteMap();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String now = sdf.format(new Date());
+            for (int i = 1; i <= 32; i++) {
+                SiteUrl url = new SiteUrl("http://www.qimenshensuan.com/index.html?page=" + i, "daily", "1.0", now);
+                siteMap.getUrl().add(url);
+                url = new SiteUrl("http://www.qimenshensuan.com/index.html?page=" + i, "daily", "1.0", now);
+                siteMap.getUrl().add(url);
+                url = new SiteUrl("http://www.qimenshensuan.com/caiyun/index.html?page=" + i, "daily", "1.0", now);
+                siteMap.getUrl().add(url);
+                url = new SiteUrl("http://www.qimenshensuan.com/hunyin/index.html?page=" + i, "daily", "1.0", now);
+                siteMap.getUrl().add(url);
+                url = new SiteUrl("http://www.qimenshensuan.com/jixiong/index.html?page=" + i, "daily", "1.0", now);
+                siteMap.getUrl().add(url);
+                url = new SiteUrl("http://www.qimenshensuan.com/shiye/index.html?page=" + i, "daily", "1.0", now);
+                siteMap.getUrl().add(url);
+            }
+            for (int i = 1; i <= 240; i++) {
+                SiteUrl url = new SiteUrl("http://www.qimenshensuan.com/dashi/detail?id=" + i, "daily", "1.0", now);
+                siteMap.getUrl().add(url);
+            }
+            SiteUrl url = new SiteUrl("http://www.qimenshensuan.com/suanmingzatan/", "daily", "1.0", now);
+            siteMap.getUrl().add(url);
+            for (int i = 1; i <= f.listFiles().length; i++) {
+                url = new SiteUrl("http://www.qimenshensuan.com/suanmingzatan/" + i, "daily", "1.0", now);
+                siteMap.getUrl().add(url);
+            }
+            String siteMapXml = JaxbUtils.convertToXml(siteMap);
+
+            File siteMapFile = new File(siteMapDir + "/sitemap.xml");
+            if (siteMapFile.exists()) {
+                siteMapFile.createNewFile();
+            }
+            FileWriter fileWriter = new FileWriter(siteMapFile);
+            fileWriter.write(siteMapXml);
+            fileWriter.flush();
+            fileWriter.close();
         } catch (IOException e) {
             log.error("error", e);
         }

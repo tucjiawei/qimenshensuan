@@ -55,6 +55,12 @@
     padding-top: 15px;
     padding-bottom: 15px;
 }
+@media (max-width: 767px){
+    .nav>li>a{
+        padding-left:5px;;
+        padding-right: 5px;
+    }
+}
 
 .master-label {
     padding: 0;
@@ -203,4 +209,23 @@ a, a:hover, .nav > li > a {
 .master-comment{
     margin-bottom: 15px;
     border-bottom: 1px solid gray;
+}
+.master-talk-container{
+    padding:0;
+}
+.master-talk-container a{
+    color: black;
+    text-decoration: underline;
+}
+.master-talk-container a:first-child{
+    display: block;
+    margin-top: 25px;;
+}
+@media (min-width: 768px) {
+    .master-talk-container {
+        width: 750px;
+    }
+    .banner-container{
+        width: 750px;
+    }
 }

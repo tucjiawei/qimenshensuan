@@ -29,30 +29,7 @@ pauseOnHover: true
 
 <div class="container master-container">
 
-    <div class="banner">
-        <div class="slider-container">
-            <div class="slider">
-                <div class="slider__item">
-                    <img src="img/1.jpeg" alt="">
-                    <span class="slider__caption">文字描述信息... </span>
-                </div>
-                <div class="slider__item">
-                    <a href="www.baidu.com"><img src="img/2.jpeg" alt=""></a>
-                    <span class="slider__caption">文字描述信息... </span>
-                </div>
-                <div class="slider__item">
-                    <img src="img/3.jpeg" alt="">
-                    <span class="slider__caption">文字描述信息... </span>
-                </div>
-            </div>
-            <div class="slider__switch slider__switch--prev" data-ikslider-dir="prev">
-                <span></span>
-            </div>
-            <div class="slider__switch slider__switch--next" data-ikslider-dir="next">
-                <span></span>
-            </div>
-        </div>
-    </div>
+    <#include "/inc/banner.ftl" />
     <#list masters as master>
         <div class="col-sm-6 master-card">
             <div class="col-xs-12">

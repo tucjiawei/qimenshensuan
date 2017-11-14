@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MasterTalk {
     private long id;
+    private String author="";
     private String title = "";
     private String content = "";
     private String time;

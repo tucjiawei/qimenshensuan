@@ -9,10 +9,10 @@
             padding: 0;
             padding-top: 50px; /* 60px to make the container go all the way to the bottom of the topbar */
         }
-        pre {
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
+        /*pre {*/
+            /*white-space: pre-wrap;*/
+            /*word-wrap: break-word;*/
+        /*}*/
     </style>
     <script type="text/javascript">
         function nav(id) {
@@ -23,12 +23,22 @@
 <body>
 <#include "/inc/nav.ftl" />
 
-<div class="container master-container">
+<div class="container banner-container" style="padding: 0">
+    <#include "/inc/banner.ftl" />
+</div>
+<div class="container master-talk-container">
     <#list docs as doc>
-        <h5>${doc.title}|${doc.time}</h5>
-        <div style="height: 80px;overflow: hidden">
-            <pre>${doc.content}</pre>
+        <a href="/suanmingzatan/${doc.id}">
+        <div class="row">
+            <div class="col-sm-8 col-xs-8">
+                ${doc.title}
+            </div>
+            <div class="col-sm-4 col-xs-4 text-right">
+                <span class="hidden-xs">${doc.author}&nbsp;|&nbsp;</span>${doc.time}
+            </div>
         </div>
+            </a>
+        <hr/>
     </#list>
 
 
@@ -56,5 +66,10 @@
         </ul>
     </nav>
 </div>
+<script type="text/javascript">
+    $(".slider-container").ikSlider({
+        delay:1000
+    });
+</script>
 </body>
 </html>

@@ -11,7 +11,12 @@
         pre {
             white-space: pre-wrap;
             word-wrap: break-word;
-            line-height: 36px;
+            line-height: 24px;
+            background-color: white;
+            border-width: 0px;
+        }
+        hr{
+            margin:0;
         }
     </style>
     <script type="text/javascript">
@@ -23,14 +28,16 @@
 <body>
 <#include "/inc/nav.ftl" />
 
-
-<div class="container master-container">
-
+<div class="container banner-container" style="padding: 0">
+    <#include "/inc/banner.ftl" />
 </div>
-
-<div class="container">
+<div class="container master-talk-container" style="border: 1px solid lightgray;border-width: 0 1px">
+    <h3 class="text-center">${doc.title}</h3>
+    <h5 class="text-center" style="line-height: 20px">${doc.author}&nbsp;|&nbsp;${doc.time}</h5>
+    <hr>
     <pre>${doc.content}</pre>
 </div>
+
 <div class="modal fade" id="qrCode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -45,5 +52,10 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(".slider-container").ikSlider({
+        delay:1000
+    });
+</script>
 </body>
 </html>
