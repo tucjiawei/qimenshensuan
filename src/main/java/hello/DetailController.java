@@ -17,7 +17,7 @@ public class DetailController {
     @Autowired
     private Init init;
 
-    @RequestMapping("/detail")
+    @RequestMapping("/dashi/detail")
     public String greeting(long id, @RequestParam(required = false, defaultValue = "PROFILE") DetailType type, Model model) {
         for (Master master : init.getMasters()) {
             if (master.getId() == id) {
@@ -31,6 +31,7 @@ public class DetailController {
                     model.addAttribute("content", master.getServices());
                 }
                 model.addAttribute("type", type.toString());
+                log.info(master.toString());
                 return res;
             }
         }

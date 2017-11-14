@@ -24,7 +24,7 @@ public class TalkController {
     private Init init;
     private final static int PAGE_SIZE = 20;
 
-    @RequestMapping("/talk")
+    @RequestMapping("/suanmingzatan")
     public String talk(@RequestParam(required = false, defaultValue = "1") int page, Model model) {
         Map<String, MasterTalk> talkMap = init.getTalkMap();
         Set<String> talkKeys = talkMap.keySet();
@@ -46,7 +46,7 @@ public class TalkController {
         return "talk";
     }
 
-    @RequestMapping("/talk/{id}")
+    @RequestMapping("/suanmingzatan/{id}")
     public String talkDetail(@PathVariable long id, Model model) {
         Map<String, MasterTalk> talkMap = init.getTalkMap();
         for (MasterTalk talk : talkMap.values()) {

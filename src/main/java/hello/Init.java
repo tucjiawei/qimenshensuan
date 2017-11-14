@@ -39,10 +39,10 @@ public class Init implements ApplicationListener<ApplicationReadyEvent> {
         log.info("talk dir is {}", talkDir);
 
         try {
-            Project project1 = new Project(ServiceType.MARRIAGE, 100, "desc");
-            Project project2 = new Project(ServiceType.AUSPICE, 100, "desc");
-            Project project3 = new Project(ServiceType.AUSPICE, 100, "desc");
-            Project project4 = new Project(ServiceType.AUSPICE, 100, "desc");
+            Project project1 = new Project(ServiceType.HUNYIN, 100, "desc");
+            Project project2 = new Project(ServiceType.SHIYE, 100, "desc");
+            Project project3 = new Project(ServiceType.CAIYUN, 100, "desc");
+            Project project4 = new Project(ServiceType.JIXIONG, 100, "desc");
             Project project5 = new Project(ServiceType.OTHER, 100, "desc");
             List<Project> projects = Arrays.asList(project1, project2, project3, project4, project5);
 
@@ -83,7 +83,7 @@ public class Init implements ApplicationListener<ApplicationReadyEvent> {
                 List<Comment> commentList = Lists.transform(usersComments.get(id - 1).getComments(), commentJsonVO -> new Comment(commentJsonVO.getAuthor(), commentJsonVO.getContent(), commentJsonVO.getTime()));
                 String[] imgPath = user.getImg().split("/");
                 String imgName = imgPath[imgPath.length - 1];
-                Master master = new Master(id++, user.getTitle(), "img/" + imgName, user.getDesc(), totalNum, totalNum, user.getGoodComment(), projects, commentList, serviceList);
+                Master master = new Master(id++, user.getTitle(), "/img/" + imgName, user.getDesc(), totalNum, totalNum, user.getGoodComment(), projects, commentList, serviceList);
                 masters.add(master);
             }
 //            masters.get(0).setPic("img/184830_head.jpg");
@@ -122,11 +122,11 @@ public class Init implements ApplicationListener<ApplicationReadyEvent> {
                     siteMap.getUrl().add(url);
                 }
                 for (int i = 1; i <= 240; i++) {
-                    SiteUrl url = new SiteUrl("http://www.qimenshensuan.com/detail?id=" + i, "daily", "1.0", now);
+                    SiteUrl url = new SiteUrl("http://www.qimenshensuan.com/dashi/detail?id=" + i, "daily", "1.0", now);
                     siteMap.getUrl().add(url);
                 }
                 for (int i = 1; i <= f.listFiles().length; i++) {
-                    SiteUrl url = new SiteUrl("http://www.qimenshensuan.com/talk/" + i, "daily", "1.0", now);
+                    SiteUrl url = new SiteUrl("http://www.qimenshensuan.com/suanmingzatan/" + i, "daily", "1.0", now);
                     siteMap.getUrl().add(url);
                 }
                 String siteMapXml = JaxbUtils.convertToXml(siteMap);
