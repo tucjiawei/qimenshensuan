@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>奇门神算</title>
+    <title>奇门神算-算命最准的网站</title>
     <#include "/inc/header.ftl" />
 
     <!--
@@ -34,7 +34,7 @@ pauseOnHover: true
         <div class="col-sm-6 master-card">
             <div class="col-xs-12">
                 <div class="col-xs-2 master-head">
-                    <img class="master-pic" src="${master.pic}" onclick="nav(${master.id?string('#')})"/>
+                    <a href="/dashi/detail?id=${master.id?string('#')}" ><img class="master-pic" src="${master.pic}" onclick="nav(${master.id?string('#')})"/></a>
                 </div>
                 <div class="col-xs-10">
                     <div>

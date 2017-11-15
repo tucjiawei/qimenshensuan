@@ -49,9 +49,17 @@ public class TalkController {
     @RequestMapping("/suanmingzatan/{id}")
     public String talkDetail(@PathVariable long id, Model model) {
         Map<String, MasterTalk> talkMap = init.getTalkMap();
-        for (MasterTalk talk : talkMap.values()) {
+        MasterTalk[] masterTalks = talkMap.values().toArray(new MasterTalk[0]);
+        for (int i = 0; i < masterTalks.length; i++) {
+            MasterTalk talk = masterTalks[i];
             if (talk.getId() == id) {
                 model.addAttribute("doc", talk);
+                if (i > 0) {
+                    model.addAttribute("before", masterTalks[i - 1]);
+                }
+                if (i + 1 < masterTalks.length) {
+                    model.addAttribute("after", masterTalks[i + 1]);
+                }
                 return "talk-detail";
             }
         }

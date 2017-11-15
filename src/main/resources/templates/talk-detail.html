@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>奇门神算</title>
+    <title>奇门神算-${doc.title}</title>
     <#include "/inc/header.ftl" />
 
     <style type="text/css">
@@ -36,6 +36,15 @@
     <h5 class="text-center" style="line-height: 20px">${doc.author}&nbsp;|&nbsp;${doc.time}</h5>
     <hr>
     <pre>${doc.content}</pre>
+    <div>
+            <div style="float: left">
+                上一篇:<#if before??><a style="display: inline" href="/suanmingzatan/${before.id}">${before.title}</a><#else>没有上一篇了</#if>
+            </div>
+            <div style="float: right">
+                下一篇:<#if after??><a style="display: inline" href="/suanmingzatan/${after.id}">${after.title}</a><#else>没有下一篇了</#if>
+            </div>
+        <div class="clearfix"></div>
+    </div>
 </div>
 
 <div class="modal fade" id="qrCode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
